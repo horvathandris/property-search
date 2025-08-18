@@ -1,0 +1,1 @@
+export type BuyerType = "standard" | "firstTimeBuyer" | "additionalProperty";

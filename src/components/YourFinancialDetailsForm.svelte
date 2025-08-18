@@ -1,6 +1,8 @@
 <script lang="ts">
     import NumberInput from "./form-elements/NumberInput.svelte";
-    import {annualSalary, mortgageMultiplier, deposit} from "../stores/budget-store.ts";
+    import {annualSalary, mortgageMultiplier, deposit, buyerType} from "../stores/budget-store.ts";
+    import Select from "./form-elements/Select.svelte";
+    import type {BuyerType} from "../types/buyer-info.ts";
 
     function handleAnnualSalaryChange(value: number) {
         $annualSalary = value;
@@ -12,6 +14,10 @@
 
     function handleMortgageMultiplierChange(value: number) {
         $mortgageMultiplier = value;
+    }
+
+    function handleBuyerTypeChange(value: BuyerType) {
+        $buyerType = value;
     }
 </script>
 
@@ -50,6 +56,15 @@
                 placeholder="e.g. 25"
                 initial={25}
                 info="The length of time you will be repaying your mortgage."
+        />
+        <Select
+                title="I am buying"
+                options={[
+                    {label: "My next home", value: "standard"},
+                    {label: "My first home", value: "firstTimeBuyer"},
+                    {label: "An additional property or second home", value: "additionalProperty"},
+                ]}
+                oninput={handleBuyerTypeChange}
         />
     </fieldset>
 </form>

@@ -1,6 +1,6 @@
 <script lang="ts">
     import Stat from "./stats/Stat.svelte";
-    import { maxLoanAmount, totalBudget } from "../stores/budget-store";
+    import { maxLoanAmount, totalBudget, stampDuty } from "../stores/budget-store";
 </script>
 
 <div class="card card-border">
@@ -9,6 +9,7 @@
         <div class="grid grid-cols-2 gap-4">
             <Stat title="Max Loan Amount" color="blue" value={$maxLoanAmount} />
             <Stat title="Total Budget" color="green" value={$totalBudget} />
+            <Stat title="Stamp Duty" color="red" value={$stampDuty} />
         </div>
     </div>
 </div>
